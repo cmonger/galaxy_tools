@@ -1,0 +1,22 @@
+<tool id="merge_htseq.py" name= "Create HTSeq Count Table">
+        <description>Merge multiple HTSeq datasets into a counts table</description>
+                <command interpreter="python">
+                merge_htseq.py
+                #for $i in $rinput
+                        ${i.input}
+                #end for
+		</command>
+			<inputs>
+			<repeat name="rinput" title="Input Counts" >
+                                <param format="tabular" name="input" type="data" label="Counts file"/>
+			</repeat>
+                        </inputs>
+                        <outputs>
+                                <data format="tabular" name="output" />
+                        </outputs>
+
+        <help>
+This tool is capable of merging multiple outputs from htseq, each containing the results of one alignment, into one count matrix file for use in DeSeq or edgeR.
+        </help>
+
+</tool>
